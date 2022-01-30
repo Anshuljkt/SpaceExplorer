@@ -1,5 +1,5 @@
 {
-  "name": "nasapi",
+  "name": "spaceexplorer",
   "version": "1.0.0",
   "description": "A GUI Explorer for the public NASA API",
   "main": "server.js",
@@ -17,12 +17,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Anshuljkt/NASAPI.git"
+    "url": "git+https://github.com/Anshuljkt/SpaceExplorer.git"
   },
   "author": "Anshul Agrawal",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Anshuljkt/NASAPI/issues"
+    "url": "https://github.com/Anshuljkt/SpaceExplorer/issues"
   },
-  "homepage": "https://github.com/Anshuljkt/NASAPI#readme"
+  "homepage": "https://github.com/Anshuljkt/SpaceExplorer#readme"
 }

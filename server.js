@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -9,12 +8,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 console.log();
-var API_KEY = 'DEMO_KEY';
-if (process.env.API_KEY != undefined && process.env.API_KEY != '') {
-  API_KEY = process.env.API_KEY;
-} else {
-  console.log("No API Key specified. This program will be affected by NASA's Demo Key rate limits.");
-}
+let API_KEY = 'DEMO_KEY';
 
 const API = `https://api.nasa.gov`
 
@@ -26,6 +20,12 @@ const simpleGet = {
     "Accept": 'application/json'
   }
 }
+
+app.get('/setAPIKey/:apiKey', function (req, res) {
+  // Set an API key to be used by the function after login was successful
+  API_KEY = req.params.apiKey
+  res.send(`Set API Key to: ${API_KEY}`)
+})
 
 app.get('/', function (req, res) {
   //Sets picture of the day
