@@ -18,11 +18,7 @@ if (process.env.API_KEY != undefined && process.env.API_KEY != '') {
 
 const API = `https://api.nasa.gov`
 
-console.log(`Using Base URL: ${API}`);
-
-function getPotD() {
-
-}
+// console.log(`Using Base URL: ${API}`);
 
 const simpleGet = {
   method: 'GET',
@@ -36,20 +32,24 @@ app.get('/', function (req, res) {
   var potdURL;
   var altText;
   url = `${API}/planetary/apod?api_key=${API_KEY}`;
-  // console.log(url);
+  console.log(url);
   fetch(url, simpleGet)
     .then(resp => resp.json())
     .then(resp => {
       potdURL = resp.url;
       altText = resp.explanation;
       if (potdURL === undefined) {
-        potdURL = "https://apod.nasa.gov/apod/image/1912/J0030_NICER_1024.jpg";
+        potdURL = "https://apod.nasa.gov/apod/image/2201/sunprom3_soho_960.jpg";
       }
       // console.log(`potdURL: ${potdURL}`);
-      res.render('index', {
+      res.render('login', {
         imgSrc: potdURL,
         text: altText
       });
+      // res.render('index', {
+      //   imgSrc: potdURL,
+      //   text: altText
+      // });
     })
     .catch(err => {
       console.error(err);
