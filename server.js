@@ -30,29 +30,24 @@ app.get('/', function (req, res) {
   });
 })
 
-app.post('/setAPIKey/:apiKey', function (req, res) {
-  // Set an API key to be used by the function after login was successful
-  API_KEY = req.params.apiKey
-  API_KEY = 'DEMO_KEY'
-  
-  // res.redirect('/home')
-
-  // successfulLogin = 
-  // { result: "success",
-  //   message: `Set API Key to: ${API_KEY}`}
-  // res.send(JSON.stringify(successfulLogin))
-  
-})
+// app.post('/setAPIKey/:apiKey', function (req, res) {
+//   // Set an API key to be used by the function after login was successful
+//   API_KEY = req.params.apiKey
+//   res.status(200).send()
+// })
 
 app.post('/login', function (req, res) {
   payload = req.body
   username = payload.username
   password = payload.password
-  console.log(req.body)
-  if (password == 'abcd') {
+  logged_in = false
+
+
+
+  if (password=='abcd') {
     res.redirect('/home')
   } else {
-    res.status(400).send()
+    res.status(400).send()  
   }
 })
 
@@ -62,6 +57,13 @@ app.post('/register', function (req, res) {
   password = payload.password
   API_KEY = payload.apiKey
 
+  logged_in = false
+
+  if (logged_in) {
+    res.redirect('/home')
+  } else {
+    res.status(400).send()  
+  }
   
 })
 

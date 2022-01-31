@@ -34,7 +34,6 @@ loginButton.addEventListener('click', function (e) {
 })
 
 registerButton.addEventListener('click', function (e) {
-    console.log("tryna register huh?")
     username = document.getElementById('register_username').value;
     password = document.getElementById('register_password').value;
     apiKey = document.getElementById('register_apiKey').value;
@@ -53,18 +52,15 @@ registerButton.addEventListener('click', function (e) {
     }
 
     fetch(`/register`, registerRequest)
-    .then(res => res.redirected && (location.href = res.url))
+    .then(res => {
+        res.redirected && (location.href = res.url)
+        if (res.status == 400) {
+            console.log("invalid registration!")
+            errorText.textContent = "Registration failed! Please try again."
+        }
+        }) 
     .catch(err => {
         alert(err)
         console.log(err)
     })
-
-    // request.open('POST', `/setAPIKey/${apiKey}`, false)
-    // request.onload = function () {
-    //     // data = JSON.parse(this.response);
-    //     console.log(this.response)
-
-    //     // console.log(data)
-    // }
-    // request.send();
 })

@@ -1,4 +1,4 @@
-# A Simple GUI for Exploring NASA's Public API
+# An App For Exploring NASA's Public API
 
 To run the project, download the entire repository and make sure you have Node.js and NPM installed.
 
@@ -6,15 +6,13 @@ To run the project, download the entire repository and make sure you have Node.j
 
 In order to use this project for an extended period of time, you will need an API key. You can sign up for an API key at https://https://api.nasa.gov/.
 
-Once you have an API key, create a file called ".env" in the root directory of the project, and save your API Key to the file with the following format:
+Once you have an API key, you can register using the app, a username and password, and your API key will be stored on our database for future use.
 
-```
-API_KEY = your_key_here
-```
+If you are a returning user, simply enter your username and password to continue exploring!
 
 ## Running the project
 
-Once everything is set, run the following commands:
+Once everything is downloaded, navigate to the SpaceExplorer directory and run the following commands:
 
 ```
 npm install
